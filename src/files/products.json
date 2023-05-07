@@ -1,0 +1,123 @@
+[
+    {
+      "title": "Cereal",
+      "description": "Cereal Infantil Nestum Frutilla - 250GR",
+      "price": 6000,
+      "thumbnail": "https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20386774-qf9cW0sV-medium.png",
+      "code": "1012",
+      "stock": 100,
+      "status": true,
+      "category": "Abarrotes",
+      "id": 1
+    },
+    {
+      "title": "Chorizo",
+      "description": "Chorizo Parrillero - 20 Und",
+      "price": 4000,
+      "thumbnail": "https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20050239-Oy6zFS-p-medium.jpg",
+      "code": "1016",
+      "stock": 30,
+      "status": true,
+      "category": "Fiambreria",
+      "id": 2
+    },
+    {
+      "title": "Risotto",
+      "description": "Risotto de Champiñones 40Gr",
+      "price": 3000,
+      "thumbnail": "https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20548165-LhlJB88C-medium.jpg",
+      "code": "1010",
+      "stock": 40,
+      "status": true,
+      "category": "Abarrotes",
+      "id": 3
+    },
+    {
+      "title": "Pasta",
+      "description": "pasta larga 200Gr",
+      "price": 1000,
+      "thumbnail": "https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20548165-LhlJB88C-medium.jpg",
+      "code": "1033",
+      "stock": 10,
+      "status": true,
+      "category": "Abarrotes",
+      "id": 4
+    },
+    {
+      "title": "Leche",
+      "description": "Risotto de Champiñones 40Gr",
+      "price": 3000,
+      "thumbnail": "https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20548165-LhlJB88C-medium.jpg",
+      "code": "1046",
+      "stock": 20,
+      "status": true,
+      "category": "Lacteos",
+      "id": 5
+    },
+    {
+      "title": "Arroz",
+      "description": "Arroz grano entero 500Gr",
+      "price": 500,
+      "thumbnail": "https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20548165-LhlJB88C-medium.jpg",
+      "code": "1018",
+      "stock": 2000,
+      "status": true,
+      "category": "Abarrotes",
+      "id": 6
+    },
+    {
+      "title": "Pizza",
+      "description": "Pizza de peperoni mediana",
+      "price": 5500,
+      "thumbnail": "https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20211526-38YL_0zf-medium.jpg",
+      "code": "3333",
+      "stock": 8800,
+      "status": true,
+      "category": "Congelado",
+      "id": 7
+    },
+    {
+      "title": "Vianesa",
+      "description": "Vianesa de pollo - 20 Und",
+      "price": 9999,
+      "thumbnail": "https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20050239-Oy6zFS-p-medium.jpg",
+      "code": "777",
+      "stock": 30,
+      "status": true,
+      "category": "Fiambreria",
+      "id": 8
+    },
+    {
+      "title": "Yogurt",
+      "description": "Yogurt de durazno 100Gr",
+      "price": 9999,
+      "thumbnail": "https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20050239-Oy6zFS-p-medium.jpg",
+      "code": "44444",
+      "stock": 888,
+      "status": true,
+      "category": "Lacteos",
+      "id": 9
+    },
+    {
+      "title": "pizarra",
+      "description": "Pizarra blanca",
+      "price": 92000,
+      "thumbnail": "https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20050239-Oy6zFS-p-medium.jpg",
+      "code": "44448",
+      "stock": 888,
+      "status": true,
+      "category": "Escolar",
+      "id": 10
+    },
+    {
+      "title": "pintura",
+      "description": "Pintura blanca",
+      "price": 7888,
+      "thumbnail": "https://7483c243aa9da28f329c-903e05bc00667eb97d832a11f670edad.ssl.cf1.rackcdn.com/20050239-Oy6zFS-p-medium.jpg",
+      "code": "6633",
+      "stock": 1,
+      "status": true,
+      "category": "Hogar",
+      "id": 11
+    }
+  ]
