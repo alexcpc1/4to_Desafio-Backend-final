@@ -3,49 +3,9 @@
 <div>
   <h2>Bienvenido</h2>
   <h1>Lista de Compras:</h1>
-  <div>
-    <form id="formulario" class="form-inline">
-        <div class="form-group mx-sm-3 mb-2">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="title">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="title">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="description">
-          <input class="form-control" id="chatBox" type="number" id="texto" placeholder="Price">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="thumbnail">
-          <input class="form-control" id="chatBox" type="number" id="texto" placeholder="code">
-          <input class="form-control" id="chatBox" type="number" id="texto" placeholder="stock">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="status">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="category">
-          <input class="form-control" id="chatBox" type="number" id="texto" placeholder="Id">
-        
-        </div>
-            
-        <button type="submit" class="btn btn-primary mb-2">Enviar</button>
-        <button type="submit" class="btn btn-primary mb-2">Eliminar</button>
-     </form>
-  </div>
   <ul>
       {{#each Products}}
-    
-
         <li>title: {{this.title}} - description: {{this.description}} - Price: {{this.Price}} - thumbnail: {{this.thumbnail}} - code: {{this.code}} - stock: {{this.stock}} - status: {{this.status}} category: {{this.category}} - Id: {{this.Id}} </li>
-      {{!-- <label for="title">title</label>
-      <input type="text" class="data" name="title">
-      <label for="description">description</label>
-      <input type="text" class="data" name="description">
-      <label for="Price">Price</label>
-      <input type="number" class="data" name="Price">
-      <label for="thumbnail">thumbnail</label>
-      <input type="text" class="data" name="thumbnail">
-      <label for="code">code</label>
-      <input type="number" class="data" name="code">
-      <label for="stock">stock</label>
-      <input type="number" class="data" name="stock">
-      <label for="status">status</label>
-      <input type="text" class="data" name="status">
-      <label for="category">category</label>
-      <input type="text" class="data" name="category">
-      <label for="Id">Id</label>
-      <input type="number" class="data" name="Id"> --}}
       {{/each}}
   </ul>
 </div>
