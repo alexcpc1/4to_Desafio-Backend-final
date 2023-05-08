@@ -6,27 +6,23 @@ const socketClient = io();
 const productManager = new ProductManager("products.json");
 console.log(productManager);
 
-const title = document.getElementById("title");
-const description = document.getElementById("description");
-const Price = document.getElementById("Price");
-const thumbnail = document.getElementById("thumbnail");
-const code = document.getElementById("code");
-const stock = document.getElementById("stock");
-const status = document.getElementById("status");
-const category = document.getElementById("category");
+const chatBox = document.getElementById("title", "description", "Price", "thumbnail", "code", "stock", "status", "category");
 const Agregar = document.getElementById("Agregar");
 const Eliminar = document.getElementById("Eliminar");
-const productsHistory = document.getElementById("chatHistory");
+const productsHistory = document.getElementById("productsHistory");
 
 const sendMessage = ()=>{
-    socketClient.emit("message",chatBox.value);
+    socketClient.emit("products",chatBox.value);
     chatBox.value="";
 }
 
-sendButton.addEventListener("click",(e)=>{
+Agregar.addEventListener("click",(e)=>{
     sendMessage()
 });
 
+Eliminar.addEventListener("click",(e)=>{
+    sendMessage()
+});
 chatBox.addEventListener("keydown",(evt)=>{
     if(evt.key === "Enter"){
         sendMessage()

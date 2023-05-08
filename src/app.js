@@ -37,63 +37,25 @@ app.use("/api/realtimeproducts", realtimeRouter);
  
 app.use(viewsRouter);
 
-let messages = [];
+let products = [];
 const productManager = new ProductManager("products.json");
 
-socketServer.on("connection",(socket)=>{
-    console.log(`nuevo socket cliente conectado ${socket.id}`);
-    //emitir el mensaje al socket actual
-    socket.emit("chatMessages",messages);
-
-    socket.on("message",(data)=>{
-        messages.push({socketId:socket.id, message:data});
+socketServer.on("connection",(productManager)=>{
+    try {
+        const {title, description, code, price, thumbnail, status, stock, category} = req.body;
+        if(!title || !description || !code || !price || !status || !stock || !category){
+        return res.status(400).json({status:"error", message:"Los campos no son validos"})
+        }
+        const newProduct = req.body;
+        const productSaved = productManager.addProduct(newProduct);
+        res.json({status:"nuevo producto agregado", data:productSaved});
+    } catch (error) {
+        res.status(400).json({status:"error", message:error.message});
+    }
+   
+    socket.on("product",(data)=>{
+        products.push({socketId:socket.id, product:data});
         //emitir el mensaje a todos los clientes conectados
-        socketServer.emit("chatMessages",messages);
+        socketServer.emit("chatMessages",products);
     });
 });
-    //     client.on('usuarioNuevo', user => {
-//         let listado = usuarios.agregarUsuario(client.id, user)
-//         let texto = `Se ha conectado ${user}`
-//         io.emit('nuevoUsuario', texto)
-//     })
-
-//     socket.on("newProducts",(productManager)=>{
-//         const newProduct = req.body;
-//         const productSaved = productManager.addProduct(newProduct);
-//         messages.push({socketId:socket.id, message:data});
-//         //emitir el mensaje a todos los clientes conectados
-//         socketServer.emit("messageServer","Producto Agregado");
-//     });
-// });
-//  otra info
-// const { Usuarios } = require('./Usuario');
-// const usuarios = new Usuarios()
-
-// io.on('connection', client => {
-//     console.log('Un usuario se ha conectado')
-
-//     // client.emit('mensaje', 'Bienvenido')
-
-//     // client.on('mensaje', informacion => {
-//     //     console.log(informacion)
-//     // })
-
-//     client.on('usuarioNuevo', user => {
-//         let listado = usuarios.agregarUsuario(client.id, user)
-//         let texto = `Se ha conectado ${user}`
-//         io.emit('nuevoUsuario', texto)
-//     })
-
-//     // client.on('disconnect', () => {
-//     //     let usuarioBorrado = usuarios.borrarUsuario(client.id)
-//     //     let texto = `Se ha desconectado ${usuarioBorrado.nombre}`
-//     //     io.emit('usuarioDesconectado', texto)
-//     // })
-
-//     client.on('texto', (text, callback) => {
-//         let usuario = usuarios.getUsuario(client.id)
-//         let texto = `<b>${usuario.nombre} :</b> ${text} `
-//         io.emit('texto', texto)
-//         callback()
-//     })
-// });
