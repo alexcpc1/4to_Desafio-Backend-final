@@ -6,14 +6,14 @@ const chatBox = document.getElementById("chatBox");
 const sendButton = document.getElementById("sendButton");
 const chatHistory = document.getElementById("chatHistory");
 
-// const sendMessage = ()=>{
-//     socketClient.emit("message",chatBox.value);
-//     chatBox.value="";
-// }
+const sendMessage = ()=>{
+    socketClient.emit("message",chatBox.value);
+    chatBox.value="";
+}
 
-// sendButton.addEventListener("click",(e)=>{
-//     sendMessage()
-// });
+sendButton.addEventListener("click",(e)=>{
+    sendMessage()
+});
 
 chatBox.addEventListener("keydown",(evt)=>{
     if(evt.key === "Enter"){
@@ -26,13 +26,13 @@ socketClient.on("messageServer",(data)=>{
         socketClient.emit("messageClient","confirmacion recibida")
     }, 5000);
 });
-// socketClient.on("chatMessages",(data)=>{
-//     console.log(data);
-//     chatHistory.innerHTML="";
-//     data.forEach(itemMsg => {
-//         //crear un parrafo por mensaje
-//         const parrafo = document.createElement("p");
-//         parrafo.innerHTML=`id:${itemMsg.socketId} >>> ${itemMsg.message}`;
-//         chatHistory.appendChild(parrafo);
-//     });
-// });
+socketClient.on("chatMessages",(data)=>{
+    console.log(data);
+    chatHistory.innerHTML="";
+    data.forEach(itemMsg => {
+        //crear un parrafo por mensaje
+        const parrafo = document.createElement("p");
+        parrafo.innerHTML=`id:${itemMsg.socketId} >>> ${itemMsg.message}`;
+        chatHistory.appendChild(parrafo);
+    });
+});
