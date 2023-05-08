@@ -1,10 +1,22 @@
+import { ProductManager } from "../../managers/ProductManager.js";
 console.log("home js")
 // console.log("soy el archivo javascript para la pagina del home");
 const socketClient = io();
 
-const chatBox = document.getElementById("chatBox");
-const sendButton = document.getElementById("sendButton");
-const chatHistory = document.getElementById("chatHistory");
+const productManager = new ProductManager("products.json");
+console.log(productManager);
+
+const title = document.getElementById("title");
+const description = document.getElementById("description");
+const Price = document.getElementById("Price");
+const thumbnail = document.getElementById("thumbnail");
+const code = document.getElementById("code");
+const stock = document.getElementById("stock");
+const status = document.getElementById("status");
+const category = document.getElementById("category");
+const Agregar = document.getElementById("Agregar");
+const Eliminar = document.getElementById("Eliminar");
+const productsHistory = document.getElementById("chatHistory");
 
 const sendMessage = ()=>{
     socketClient.emit("message",chatBox.value);

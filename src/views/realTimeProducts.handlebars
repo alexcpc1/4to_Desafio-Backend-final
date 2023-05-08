@@ -4,20 +4,20 @@
   <h2>Bienvenido</h2>
   <h1>Agregar Productos en Tiempo Real:</h1>
   <div>
-    <form  action= "http://localhost:8080/realtimeptoducts" method="post">
+    <form id="productsHistory" action= "http://localhost:8080/realtimeptoducts" method="post">
      {{!-- <form  action= "http://localhost:8080/realtimeptoducts" method="post" id="formulario" class="form-inline"> --}}
         <div class="form-group mx-sm-3 mb-2">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="title">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="title">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="description">
-          <input class="form-control" id="chatBox" type="number" id="texto" placeholder="Price">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="thumbnail">
-          <input class="form-control" id="chatBox" type="number" id="texto" placeholder="code">
-          <input class="form-control" id="chatBox" type="number" id="texto" placeholder="stock">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="status">
-          <input class="form-control" id="chatBox" type="text" id="texto" placeholder="category">
+          <input class="form-control" id="title" type="text" id="texto" placeholder="title">
+          <input class="form-control" id="description" type="text" id="texto" placeholder="description">
+          <input class="form-control" id="Price" type="number" id="texto" placeholder="Price">
+          <input class="form-control" id="thumbnail" type="text" id="texto" placeholder="thumbnail">
+          <input class="form-control" id="code" type="number" id="texto" placeholder="code">
+          <input class="form-control" id="stock" type="number" id="texto" placeholder="stock">
+          <input class="form-control" id="status" type="text" id="texto" placeholder="status">
+          <input class="form-control" id="category" type="text" id="texto" placeholder="category">
         </div>            
-        <button type="submit" class="btn btn-primary mb-2">Agregar</button>
-        <button type="submit" class="btn btn-primary mb-2">Eliminar</button>
+        <button id="Agregar" type="submit" class="btn btn-primary mb-2">Agregar Producto</button>
+        <button id="Eliminar" type="submit" class="btn btn-primary mb-2">Eliminar Producto</button>
+     <br></br>
      </form>
   </div>

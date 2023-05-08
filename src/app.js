@@ -6,6 +6,7 @@ import handlebars from "express-handlebars";
 import { viewsRouter } from "./routes/views.routes.js";
 import { __dirname } from "./utils.js";
 import path from "path";
+import { realtimeRouter } from "./routes/realtime.routes.js";
 
 import { ProductManager } from "./managers/ProductManager.js";
 
@@ -32,7 +33,7 @@ app.set("view engine","handlebars");
 //routes
 app.use("/api/products", productRouter);
 app.use("/api/carts", cartRouter);
-app.use("/api/realtimeproducts", viewsRouter);
+app.use("/api/realtimeproducts", realtimeRouter);
  
 app.use(viewsRouter);
 

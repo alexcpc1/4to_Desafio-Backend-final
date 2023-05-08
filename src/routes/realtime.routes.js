@@ -6,10 +6,10 @@ const productManager = new ProductManager("products.json");
 const router = Router();
 
 router.get("/",async (req,res)=>{
-    const addProducts = await productManager.getProducts();
-    res.render("home", {
-        Products: addProducts
+    const Products = await productManager.getProducts();
+    res.render("realtimeproducts", {
+        Products: Products
     });
 });
 
-export {router as viewsRouter};
+export {router as realtimeRouter};
