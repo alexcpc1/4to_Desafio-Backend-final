@@ -7,7 +7,6 @@ import { viewsRouter } from "./routes/views.routes.js";
 import { __dirname } from "./utils.js";
 import path from "path";
 import { realtimeRouter } from "./routes/realtime.routes.js";
-
 import { ProductManager } from "./managers/ProductManager.js";
 
 // configuracion del servidor http
@@ -23,7 +22,7 @@ app.use(express.static(path.join(__dirname,"public")));
 const httpServer = app.listen(port,()=>console.log(`Server listening on port ${port}`));
 
 // //servidor de websocket
-const socketServer = new Server(httpServer);
+const socket = new Server(httpServer);
 
 //configuracion del motor de plantillas
 app.engine("handlebars",handlebars.engine());//inicializando handlebars
@@ -33,29 +32,21 @@ app.set("view engine","handlebars");
 //routes
 app.use("/api/products", productRouter);
 app.use("/api/carts", cartRouter);
-app.use("/api/realtimeproducts", realtimeRouter);
+app.use("/realtimeproducts", realtimeRouter);
  
 app.use(viewsRouter);
 
-let products = [];
 const productManager = new ProductManager("products.json");
 
-socketServer.on("connection",(productManager)=>{
-    try {
-        const {title, description, code, price, thumbnail, status, stock, category} = req.body;
-        if(!title || !description || !code || !price || !status || !stock || !category){
-        return res.status(400).json({status:"error", message:"Los campos no son validos"})
-        }
-        const newProduct = req.body;
-        const productSaved = productManager.addProduct(newProduct);
-        res.json({status:"nuevo producto agregado", data:productSaved});
-    } catch (error) {
-        res.status(400).json({status:"error", message:error.message});
-    }
-   
-    socket.on("product",(data)=>{
-        products.push({socketId:socket.id, product:data});
-        //emitir el mensaje a todos los clientes conectados
-        socketServer.emit("chatMessages",products);
-    });
+socket.on("connection", async (socket) => {
+    console.log("id: " + socket.client.conn.id);
+
+const items = await productManager.getProducts();
+    socket.emit("productShow", items);
+
+socket.on("item", async (product) => {
+    await productManager.addProduct(product);
+    const items = await productManager.getProducts();
+    socket.emit("productShow", items);
+	});
 });
