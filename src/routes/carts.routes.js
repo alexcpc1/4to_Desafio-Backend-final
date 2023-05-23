@@ -1,17 +1,22 @@
 import {Router} from "express";
-import { CartManager } from "../managers/CartManager.js";
-import { ProductManager } from "../managers/ProductManager.js";
+// import { CartManager } from "../dao/managers/CartManager.js";
+// import { ProductManager } from "../dao/managers/ProductManager.js";
+// import { CartFiles } from "../dao/managers/carts.files.js";
+import { CartsMongo } from "../dao/managers/carts.mongo.js";
 
-const productManager = new ProductManager("products.json");
-const cartManager = new CartManager("carts.json");
+// const cartsService = new CartFiles();
+const cartsService = new CartsMongo();
+// const productManager = new ProductManager("products.json");
+// const cartManager = new CartManager("carts.json");
 
 const router = Router();
 
 router.post("/",async(req,res)=>{
     try {
-        const cartCreated = await cartManager.addCart();
-        res.json({status:"success", data:cartCreated});
+        const cartCreated = await cartsService.createCart();
+        res.json({status:"success",data:cartCreated});
     } catch (error) {
+        console.log(error.message);
         res.status(400).json({status:"error", message:error.message});
     }
 });

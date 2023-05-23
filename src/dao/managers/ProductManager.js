@@ -20,9 +20,52 @@ class ProductManager {
         return newId;
     }
 
+    async codeDuplicate(code) {
+		let content = await fs.promises.readFile(this.path, "utf-8");
+		let products = JSON.parse(content);
+		for (let i = 0; i < products.length; i++) {
+			if (products[i].code === code) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	async addProduct(product) {
+		try {
+			if (await this.codeDuplicate(product.code)) {
+				throw new Error("Codigo ingresado ya se encuentra registrado");
+			}
+
+			if (this.fileExists()) {
+				let content = await fs.promises.readFile(this.path, "utf-8");
+				let products = JSON.parse(content);
+				let productId = this.generateId(products);
+				product.id = productId;
+
+				products.push(product);
+				await fs.promises.writeFile(
+					this.path,
+					JSON.stringify(products, null, 2)
+				);
+				return product;
+			} else {
+				let productId = this.generateId([]);
+				product.id = productId;
+
+				await fs.promises.writeFile(
+					this.path,
+					JSON.stringify([product], null, 2)
+				);
+				return product;
+			}
+		} catch (error) {
+			throw new Error(error.message);
+		}
+	}
     async addProduct ({title, description, code, price, thumbnail, status, stock, category}){
         
-        if(!title || !description || !code || !price || !status || !stock || !category){
+        if(!title || !description || !code || !price || !thumbnail ||!status || !stock || !category){
          return console.log("Todos los campos deben ser Obligatorios");
         }
         try{

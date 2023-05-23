@@ -10,7 +10,7 @@ productsHistory.addEventListener("submit", (evt) => {
 	const title = evt.target.elements.title.value;
 	const description = evt.target.elements.description.value;
     const price = evt.target.elements.price.value;
-	// const thumbnails = evt.target.elements.thumbnails.value;
+	const thumbnail = evt.target.elements.thumbnail.value;
 	const code = evt.target.elements.code.value;
 	const stock = evt.target.elements.stock.value;
 	const status = evt.target.elements.status.value;
@@ -19,7 +19,7 @@ productsHistory.addEventListener("submit", (evt) => {
 		title: title,
 		description: description,
         price: price,
-        // thumbnails: thumbnails,
+        thumbnail: thumbnail,
 		code: code,
         stock: stock,
 		status: "true",
@@ -47,7 +47,7 @@ socketClient.on("productShow", (data) => {
         <h3>Descripcion: ${product.description} </h3>
         <h3>Codigo: ${product.code}</h3>
         <h3>Precio: ${product.price} </h3>
-		<h3>Thumbnails: ${product.thumbnails}</h3>
+		<h3>Thumbnail: ${product.thumbnail}</h3>
         <h3>Estado: ${product.status} </h3>
         <h3>Stock: ${product.stock}</h3>
         <h3>Categoria: ${product.category}</h3>
